@@ -1,11 +1,11 @@
 USE codeup_test_db;
 
 INSERT INTO albums (artist, name, release_date, sales, genre)
-VALUES ('Michael Jackson', 'Thriller', 1982, 46000000,'Pop, rock, R&B'),
+VALUES ('Michael Jackson', 'Thriller', "1982", 46000000,'Pop, rock, R&B'),
 
-('AC/DC', 'Back in Black', 1980, 26100000,'Hard rock'),
+('AC/DC', 'Back in Black', "1980", 26100000,'Hard rock'),
 
-('Pink Floyd', 'The Dark Side of the Moon', 1973, 24200000, 'Progressive rock'),
+('Pink Floyd', 'The Dark Side of the Moon', "1973", 24200000, 'Progressive rock'),
 
 ("Whitney Houston / Various artists", "The Bodyguard", "1992", 27400000, "Soundtrack/R&B, soul, pop"),
 
