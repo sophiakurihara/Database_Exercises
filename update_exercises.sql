@@ -1,7 +1,7 @@
 USE codeup_test_db;
 -- Displaying all album names and sales
 SELECT 'Here are All albums:' AS 'I'\G
-SELECT name, sales FROM albums\G
+SELECT name, sales FROM albums;
 -- Setting sales values to *10 the original
 UPDATE albums SET sales = (sales * 10);
 SELECT 'Here are updated sales' AS 'I.A.'\G
@@ -14,7 +14,7 @@ SELECT name FROM albums WHERE release_date < 1980;
 -- Setting albums before 1980 back to 1800s
 UPDATE albums SET release_date = (release_date - 100) WHERE release_date < 1980;
 SELECT 'Here are albums moved back to 1800s:' AS 'II.A.'\G
-SELECT name FROM albums WHERE release_date BETWEEN 1800 and 1899;
+SELECT name FROM albums WHERE release_date < 1900;
 
 -- Displaying albums by MJ
 SELECT 'Albums by MJ:' AS 'III'\G

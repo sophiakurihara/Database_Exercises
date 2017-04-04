@@ -7,3 +7,5 @@ DELETE FROM albums WHERE genre LIKE '%disco%' or genre LIKE '%Disco';
 
 SELECT 'Deleting albums by Celine Dion' AS 'III'\G
 DELETE FROM albums WHERE artist = 'Celine Dion';
+
+SELECT * FROM albums;
