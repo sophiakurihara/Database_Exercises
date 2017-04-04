@@ -10,11 +10,11 @@ SELECT sales FROM albums;
 
 -- Displaying albumes released before 1980
 SELECT 'Released BEFORE 1980:' AS 'II'\G
-SELECT name FROM albums WHERE release_date < 1980;
+SELECT name FROM albums WHERE release_date < '1980-01-01';
 -- Setting albums before 1980 back to 1800s
-UPDATE albums SET release_date = (release_date - 100) WHERE release_date < 1980;
+UPDATE albums SET release_date = DATE_SUB(release_date, INTERVAL 100 YEAR) WHERE release_date < '1980-01-01';
 SELECT 'Here are albums moved back to 1800s:' AS 'II.A.'\G
-SELECT name FROM albums WHERE release_date < 1900;
+SELECT name FROM albums WHERE release_date < '1980-01-01';
 
 -- Displaying albums by MJ
 SELECT 'Albums by MJ:' AS 'III'\G
