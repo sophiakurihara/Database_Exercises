@@ -11,7 +11,8 @@ ORDER BY first_name, last_name;
 
 SELECT emp_no, first_name, last_name
 FROM employees
-WHERE last_name LIKE 'E%e';
+WHERE last_name LIKE 'E%e'
+ORDER BY emp_no;
 -- employees whose last names begin and end with 'e'
 
 SELECT * FROM employees
