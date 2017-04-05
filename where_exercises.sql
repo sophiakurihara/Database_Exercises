@@ -9,7 +9,7 @@ AND (
 
 SELECT emp_no, first_name, last_name
 FROM employees
-WHERE last_name LIKE 'E%';
+WHERE last_name LIKE 'E%e';
 
 SELECT * FROM employees
 WHERE hire_date BETWEEN '1990-01-01' and '1999-12-31';
