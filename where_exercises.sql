@@ -10,6 +10,7 @@ AND (
 SELECT emp_no, first_name, last_name
 FROM employees
 WHERE last_name LIKE 'E%e';
+-- employees whose last names begin and end with 'e'
 
 SELECT * FROM employees
 WHERE hire_date BETWEEN '1990-01-01' and '1999-12-31';
@@ -19,6 +20,7 @@ WHERE birth_date LIKE '%-12-25';
 
 SELECT * FROM employees
 WHERE last_name LIKE '%q%';
+-- employees whose last names contain the letter 'q'
 
 SELECT emp_no, first_name, last_name
 FROM employees
