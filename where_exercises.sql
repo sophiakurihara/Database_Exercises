@@ -25,3 +25,8 @@ FROM employees
 WHERE hire_date BETWEEN '1990-01-01' AND '1999-12-31'
 AND birth_date LIKE '%-12-25';
 -- finds all employees hired in the 90's with birthdays on christmas
+
+SELECT * FROM employees
+WHERE last_name LIKE '%q%'
+AND last_name NOT LIKE '%qu%';
+-- employees with 'q' in their last name but not 'qu'
