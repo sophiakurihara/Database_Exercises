@@ -52,3 +52,13 @@ JOIN departments as d
   ON d.dept_no = dm.dept_no
 WHERE dm.to_date = '9999-01-01' AND gender = 'F';
 -- all the departments headed by women
+
+SELECT title AS 'Title', count(de.emp_no) AS 'Count'
+FROM titles AS t
+JOIN dept_emp AS de
+	ON t.emp_no = de.emp_no
+JOIN departments AS d
+	ON de.dept_no = d.dept_no
+WHERE de.to_date = '9999-01-01' AND t.to_date = '9999-01-01' AND de.dept_no = 'd009'
+GROUP BY title;
+-- Find the current titles of employees currently working in the Customer Service department.
