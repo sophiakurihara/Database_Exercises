@@ -62,3 +62,29 @@ JOIN departments AS d
 WHERE de.to_date = '9999-01-01' AND t.to_date = '9999-01-01' AND de.dept_no = 'd009'
 GROUP BY title;
 -- Find the current titles of employees currently working in the Customer Service department.
+
+SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager', sa.salary AS 'Salary'
+FROM employees as e
+JOIN dept_manager as dm
+  ON dm.emp_no = e.emp_no
+JOIN salaries AS sa
+  ON sa.emp_no = e.emp_no
+JOIN departments as d
+  ON d.dept_no = dm.dept_no
+WHERE dm.to_date = '9999-01-01' AND sa.to_date = '9999-01-01';
+-- current managers' salaries
+
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee Name', d.dept_name AS 'Department Name', CONCAT(m.first_name, ' ', m.last_name) AS 'Manager Name'
+FROM employees AS e
+JOIN dept_emp AS de
+	ON de.emp_no = e.emp_no
+JOIN departments AS d
+	ON d.dept_no = de.dept_no
+
+JOIN dept_manager AS dm
+	ON dm.dept_no = d.dept_no
+JOIN employees AS m
+	ON m.emp_no = dm.emp_no
+WHERE de.to_date = '9999-01-01' AND dm.to_date = '9999-01-01';
+-- Bonus: Find the names of all current employees, their department name, and their current manager's name.
+
