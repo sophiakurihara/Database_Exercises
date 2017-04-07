@@ -1,3 +1,5 @@
+USE employees;
+
 ALTER TABLE albums
 ADD UNIQUE(artist);
 -- for indexes exercise
@@ -87,4 +89,55 @@ JOIN employees AS m
 	ON m.emp_no = dm.emp_no
 WHERE de.to_date = '9999-01-01' AND dm.to_date = '9999-01-01';
 -- Bonus: Find the names of all current employees, their department name, and their current manager's name.
+
+SELECT gender AS 'Gender', AVG(s.salary) AS 'Historic Avg. Salary'
+FROM employees AS e
+JOIN dept_manager AS dm
+	ON dm.emp_no = e.emp_no
+JOIN salaries AS s
+	ON s.emp_no = dm.emp_no
+GROUP BY gender;
+-- Historic average salary of F managers vs M managers
+
+SELECT gender AS 'Gender', AVG(s.salary) AS 'Historic Avg. Salary'
+FROM employees AS e
+JOIN dept_manager AS dm
+	ON dm.emp_no = e.emp_no
+JOIN salaries AS s
+	ON s.emp_no = dm.emp_no
+WHERE dm.to_date = '9999-01-01'AND s.to_date = '9999-01-01'
+GROUP BY gender;
+-- current avg salary of F managers vs M managers
+
+SELECT gender AS 'Gender', AVG(s.salary) AS 'Historic Avg. Salary'
+FROM employees AS e
+JOIN salaries AS s
+	ON s.emp_no = e.emp_no
+GROUP BY gender;
+-- Historic avg salary of F workers vs M workers
+
+SELECT gender AS 'Gender', AVG(s.salary) AS 'Historic Avg. Salary'
+FROM employees AS e
+JOIN salaries AS s
+	ON s.emp_no = e.emp_no
+WHERE s.to_date = '9999-01-01'
+GROUP BY gender;
+-- Current avg salary of F workers vs M workers
+
+SELECT gender AS 'Gender', count(dm.emp_no) 
+FROM employees AS e
+JOIN dept_manager AS dm
+	ON dm.emp_no = e.emp_no
+WHERE dm.to_date = '9999-01-01'
+GROUP BY gender;
+-- current count of F managers vs. male managers
+
+SELECT gender AS 'Gender', count(t.title) AS 'Current # of Engineers'
+FROM employees AS e
+JOIN titles AS t
+	ON t.emp_no = e.emp_no
+WHERE t.to_date = '9999-01-01' AND t.title = 'Engineer'
+GROUP BY gender;
+-- current count of F engineers vs M engineers w/ 'Engineer' title
+
 
